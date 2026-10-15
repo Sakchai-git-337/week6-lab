@@ -13,6 +13,7 @@ import (
     "moviehub/handler"
     "moviehub/mw"
     "moviehub/store"
+
 )
 
 func main() {
@@ -36,6 +37,7 @@ func main() {
     mux.HandleFunc("POST /api/auth/register", h.Register)
     mux.HandleFunc("POST /api/auth/login", h.Login)
     mux.HandleFunc("GET /api/movies", h.SearchMovies)
+    mux.HandleFunc("GET /api/movies/{id}", h.GetMovie)
     mux.HandleFunc("GET /api/movies/{id}/reviews", h.ListReviews)
 
     log.Println("MovieHub API ฟังอยู่ที่ :8080")
